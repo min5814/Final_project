@@ -1,5 +1,6 @@
 ﻿  Source.c
-C:\Users\user\Desktop\Final_project\final project\final project\Source.c(155,9): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-C:\Users\user\Desktop\Final_project\final project\final project\Source.c(19): warning C4715: 'toSymbol': 不是所有控制路徑都傳回值
+C:\Users\user\Desktop\Final_project\final project\final project\Source.c(109,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\user\Desktop\Final_project\final project\final project\Source.c(163,10): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+C:\Users\user\Desktop\Final_project\final project\final project\Source.c(21): warning C4715: 'toSymbol': 不是所有控制路徑都傳回值
   LINK : 最後的累加連結找不到或未建置 C:\Users\user\Desktop\Final_project\final project\Debug\final project.exe，正在執行完整連結
   final project.vcxproj -> C:\Users\user\Desktop\Final_project\final project\Debug\final project.exe
