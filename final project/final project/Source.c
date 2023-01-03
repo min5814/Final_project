@@ -38,7 +38,6 @@ int check_hor(int panel[][15], int y, int x, int object) { //檢查x軸方向上
 		return 0;
 	}
 }
-
 int check_ver(int panel[][15], int y, int x, int object) { //檢查y軸方向上是否連成五子
 	int stoneCount = 0;
 	for (int i = y - 4; i <= y + 4; i++) {
