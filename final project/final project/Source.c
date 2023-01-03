@@ -105,9 +105,9 @@ int check_backslash(int panel[][15], int y, int x, int object) { //檢查函數y
 int main(void) {
 	int count1 = 0, count2 = 0, fun, rou;
 	printf("請輸入遊玩局數；");
-scanf("%d", &fun);
-rou = (fun / 2 + 1);
-printf("%d戰%d勝\n", fun, rou);
+	scanf("%d", &fun);
+	rou = (fun / 2 + 1);
+	printf("%d戰%d勝\n", fun, rou);
 for (int i = 1; i <= fun; i++)
 {
 	int key = 0;
