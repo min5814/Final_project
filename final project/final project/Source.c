@@ -5,8 +5,8 @@
 #define X 1
 #define O 2
 
-char toSymbol(int num) {
-	switch (num) {
+char toSymbol(int num) {		//函數作用：給定一個棋盤位置的狀態值，返回這個狀態值所對應的圖形符號
+	switch (num) {		//其實本來是想用實心圓●表示黑棋，用空心圓⭕表示白棋的，但這次下的這個編譯器似乎不太允許這樣，顯示出來全是亂碼，於是只好改用X和O。
 	case 0:
 		return '.';		//空交叉點
 	case X:
@@ -101,111 +101,104 @@ int check_backslash(int panel[][15], int y, int x, int object) {	//檢查函數y
 		return 0;
 	}
 }
+
 int main(void) {
-	int count1 = 0, count2 = 0, fun, rou;
-	printf("請輸入遊玩局數；");
-	scanf("%d", &fun);
-	rou = (fun / 2 + 1);
-	printf("%d戰%d勝\n", fun, rou);
-	for (int i = 1; i <= fun; i++)
-	{
-		int key = 0;
+	int key = 0;
 
-		//棋盤初始狀態
-		int panel[15][15] =
-		{ {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,9,0,0,0,0,0,0,0,9,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,9,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,9,0,0,0,0,0,0,0,9,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
-		{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
+	//棋盤初始狀態
+	int panel[15][15] =
+	{ {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,9,0,0,0,0,0,0,0,9,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,9,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,9,0,0,0,0,0,0,0,9,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+	{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0} };
 
-		int cus[] = { 7,7 };	//遊標初始位置
-		int turn = X;		//初始玩家
-		int winner = 0;		//贏家：預設暫時沒有
+	int cus[] = { 7,7 };	//遊標初始位置
+	int turn = X;		//初始玩家
+	int winner = 0;		//贏家：預設暫時沒有
 
-		while (1) {
-			//清屏，並顯示現在是誰走棋
-			system("cls");
-			printf("現在是【%c】方走棋……\n", toSymbol(turn));
+	while (1) {
+		//清屏，並顯示現在是誰走棋
+		system("cls");
+		printf("現在是【%c】方走棋……\n", toSymbol(turn));
 
-			//顯示棋盤
-			for (int i = 0; i < 15; i++) {
-				for (int j = 0; j < 15; j++) {
-					if (i == cus[0] && j == cus[1]) {
-						printf("[ %c ]", toSymbol(panel[i][j]));
-					}
-					else {
-						printf("  %c  ", toSymbol(panel[i][j]));
-					}
-				}//next j
-				printf("\n\n");
-			}//next i
-
-			//如果有人贏了，顯示贏家是誰，並結束程式
-			if (winner != 0) {
-				printf("五子連珠！玩家【%c】勝！\n", toSymbol(winner));
-				return 0;
-			}
-
-			//接收鍵盤事件
-			key = getch();
-
-			//按WASD進行控制，空格鍵落子，L鍵結束遊戲
-			switch (key) {
-			case 'w': case 'W':
-				if (cus[0] == 0) cus[0] = 14;
-				else cus[0]--;
-				break;
-			case 'a': case 'A':
-				if (cus[1] == 0) cus[1] = 14;
-				else cus[1]--;
-				break;
-			case 's': case 'S':
-				if (cus[0] == 14) cus[0] = 0;
-				else cus[0]++;
-				break;
-			case 'd': case 'D':
-				if (cus[1] == 14) cus[1] = 0;
-				else cus[1]++;
-				break;
-			case 32:
-				if (panel[cus[0]][cus[1]] != X && panel[cus[0]][cus[1]] != O) {
-					panel[cus[0]][cus[1]] = turn;
-					if (check_hor(panel, cus[0], cus[1], turn) == 1
-						|| check_ver(panel, cus[0], cus[1], turn) == 1
-						|| check_slash(panel, cus[0], cus[1], turn) == 1
-						|| check_backslash(panel, cus[0], cus[1], turn) == 1) {
-						winner = turn;
-						break;
-					}
-					if (turn == X) turn = O;
-					else turn = X;
+		//顯示棋盤
+		for (int i = 0; i < 15; i++) {
+			for (int j = 0; j < 15; j++) {
+				if (i == cus[0] && j == cus[1]) {
+					printf("[ %c ]", toSymbol(panel[i][j]));
 				}
 				else {
-					printf("這裡已經有子了，重來！\n");
-					system("pause");
+					printf("  %c  ", toSymbol(panel[i][j]));
 				}
-				break;
-			case 'l': case 'L':
-				printf("結束程式……\n");
-				system("pause");
-				return 0;
-			default:
-				printf("無效按鍵！\n");
-				system("pause");
-				break;
-			}
+			}//next j
+			printf("\n\n");
+		}//next i
+
+		//如果有人贏了，顯示贏家是誰，並結束程式
+		if (winner != 0) {
+			printf("五子連珠！玩家【%c】勝！\n", toSymbol(winner));
+			return 0;
 		}
-		return 0;
+
+		//接收鍵盤事件
+		key = getch();
+
+		//按WASD進行控制，空格鍵落子，L鍵結束遊戲
+		switch (key) {
+		case 'w': case 'W':
+			if (cus[0] == 0) cus[0] = 14;
+			else cus[0]--;
+			break;
+		case 'a': case 'A':
+			if (cus[1] == 0) cus[1] = 14;
+			else cus[1]--;
+			break;
+		case 's': case 'S':
+			if (cus[0] == 14) cus[0] = 0;
+			else cus[0]++;
+			break;
+		case 'd': case 'D':
+			if (cus[1] == 14) cus[1] = 0;
+			else cus[1]++;
+			break;
+		case 32:
+			if (panel[cus[0]][cus[1]] != X && panel[cus[0]][cus[1]] != O) {
+				panel[cus[0]][cus[1]] = turn;
+				if (check_hor(panel, cus[0], cus[1], turn) == 1
+					|| check_ver(panel, cus[0], cus[1], turn) == 1
+					|| check_slash(panel, cus[0], cus[1], turn) == 1
+					|| check_backslash(panel, cus[0], cus[1], turn) == 1) {
+					winner = turn;
+					break;
+				}
+				if (turn == X) turn = O;
+				else turn = X;
+			}
+			else {
+				printf("這裡已經有子了，重來！\n");
+				system("pause");
+			}
+			break;
+		case 'l': case 'L':
+			printf("結束程式……\n");
+			system("pause");
+			return 0;
+		default:
+			printf("無效按鍵！\n");
+			system("pause");
+			break;
+		}
 	}
+	return 0;
 }

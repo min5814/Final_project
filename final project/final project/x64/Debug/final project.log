@@ -1,0 +1,2 @@
+﻿  Source.c
+C:\Users\user\Desktop\Final_project\final project\final project\Source.c(155,9): error C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
