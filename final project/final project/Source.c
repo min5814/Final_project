@@ -248,7 +248,7 @@ int main(void) {
 
 					}
 				}
-				//如果有人贏了，顯示贏家是誰
+				//如果 有人贏了，顯示贏家是誰
 				if (winner != 0) {
 					printf("五子連珠！玩家【%c】贏第%d局\n", toSymbol(winner), i);
 					if (toSymbol(winner) == 'X')
