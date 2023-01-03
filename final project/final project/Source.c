@@ -4,6 +4,7 @@
 
 #define X 1
 #define O 2
+
 char toSymbol(int num) {
 	switch (num) {
 	case 0:
