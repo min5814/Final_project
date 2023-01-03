@@ -5,9 +5,7 @@
 #define X 1
 #define O 2
 
-
-
-char toSymbol(int num) {//用空心圓⭕表示白棋的，但這次下的這個編譯器似乎不太允許這樣，顯示出來全是亂碼，於是只好改用X和O。
+char toSymbol(int num) {
 	switch (num) {
 	case 0:
 		return '.';		//空交叉點
