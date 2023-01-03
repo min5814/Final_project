@@ -1,4 +1,10 @@
 ﻿  Source.c
-C:\Users\user\Desktop\Final_project\final project\final project\Source.c(155,9): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+C:\Users\user\Desktop\Final_project\final project\final project\Source.c(115,12): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\user\Desktop\Final_project\final project\final project\Source.c(126,9): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\user\Desktop\Final_project\final project\final project\Source.c(142,2): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\user\Desktop\Final_project\final project\final project\Source.c(175,3): warning C4996: 'scanf': This function or variable may be unsafe. Consider using scanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\user\Desktop\Final_project\final project\final project\Source.c(323,11): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+C:\Users\user\Desktop\Final_project\final project\final project\Source.c(172,37): warning C4101: 'end': 未參考的區域變數
 C:\Users\user\Desktop\Final_project\final project\final project\Source.c(19): warning C4715: 'toSymbol': 不是所有控制路徑都傳回值
+  LINK : 最後的累加連結找不到或未建置 C:\Users\user\Desktop\Final_project\final project\Debug\final project.exe，正在執行完整連結
   final project.vcxproj -> C:\Users\user\Desktop\Final_project\final project\Debug\final project.exe
